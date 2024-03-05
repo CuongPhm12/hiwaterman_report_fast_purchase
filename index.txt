@@ -1231,7 +1231,7 @@ where
 					<font fontName="NewFontFamily" isBold="true"/>
 					<paragraph leftIndent="10"/>
 				</textElement>
-				<textFieldExpression><![CDATA["₩ "+$V{sum_order_amt}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[NumberFormat.getCurrencyInstance($P{REPORT_LOCALE}).format($V{sum_order_amt})]]></textFieldExpression>
 			</textField>
 		</band>
 	</title>
@@ -1324,7 +1324,7 @@ where
 				</textElement>
 				<textFieldExpression><![CDATA[$F{item_nm}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="#,##0.###;(#,##0.###-)">
 				<reportElement x="220" y="0" width="59" height="30" uuid="0ed44b5b-9372-44a8-8660-cf6c4786698e">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="c16f99f3-98aa-4a3c-89fd-a29d25e28e6a"/>
 				</reportElement>
@@ -1340,7 +1340,7 @@ where
 				</textElement>
 				<textFieldExpression><![CDATA[$F{order_qty}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="#,##0.###;(#,##0.###-)">
 				<reportElement x="279" y="0" width="138" height="30" uuid="60677d86-1efa-482b-963a-f1453b931f55">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="abd1c847-76f9-416b-b7ca-20763000232e"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
@@ -1358,7 +1358,7 @@ where
 				</textElement>
 				<textFieldExpression><![CDATA[$F{order_price}]]></textFieldExpression>
 			</textField>
-			<textField>
+			<textField pattern="#,##0.###;(#,##0.###-)">
 				<reportElement x="417" y="0" width="138" height="30" uuid="20c5d271-bdc8-4caf-85db-e5cb7898f1ee">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b0227cac-0bf9-409c-a543-355c1b9bb7e0"/>
 					<property name="com.jaspersoft.studio.unit.rightIndent" value="px"/>
@@ -1396,23 +1396,6 @@ where
 				</textElement>
 				<text><![CDATA[품명]]></text>
 			</staticText>
-			<textField evaluationTime="Report">
-				<reportElement x="130" y="2" width="425" height="30" uuid="91300962-6fae-4fa4-9741-3ccd0abddccb">
-					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
-				</reportElement>
-				<box>
-					<pen lineColor="#4069BA"/>
-					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
-					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#4069BA"/>
-					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
-					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
-				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="NewFontFamily" isBold="true"/>
-					<paragraph leftIndent="10"/>
-				</textElement>
-				<textFieldExpression><![CDATA["₩ "+$V{sum_order_amt}]]></textFieldExpression>
-			</textField>
 			<staticText>
 				<reportElement x="1" y="32" width="554" height="30" forecolor="#4069BA" uuid="ed624a25-d088-49ea-95bf-27afe4fa77ab">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="230caebd-fbeb-4a17-ab14-1ffec46bb6d8"/>
@@ -1428,6 +1411,23 @@ where
 				</textElement>
 				<text><![CDATA[부가가치세법시행규칙 제25조의 규정에 의한(영수증)으로 개정]]></text>
 			</staticText>
+			<textField evaluationTime="Report" pattern="#,##0.###;(#,##0.###-)">
+				<reportElement x="131" y="2" width="424" height="30" uuid="3367747a-85c0-42a1-b2f1-e287a6909f4a">
+					<property name="com.jaspersoft.studio.unit.leftIndent" value="px"/>
+				</reportElement>
+				<box>
+					<pen lineColor="#4069BA"/>
+					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#4069BA"/>
+					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
+					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#4069BA"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="NewFontFamily" isBold="true"/>
+					<paragraph leftIndent="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[NumberFormat.getCurrencyInstance($P{REPORT_LOCALE}).format($V{sum_order_amt})]]></textFieldExpression>
+			</textField>
 		</band>
 	</columnFooter>
 	<pageFooter>
